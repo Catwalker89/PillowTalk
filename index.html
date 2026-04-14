@@ -8,16 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --red: #C8102E;
-    --red-dark: #8B0000;
-    --red-light: #E8334A;
+    --red: #c2185b;
+    --red-dark: #fce4ec;
+    --red-light: #f48fb1;
     --cream: #FFF8F0;
     --gold: #D4A017;
     --white: #FFFFFF;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: var(--red-dark);
+    background: linear-gradient(160deg, #fce4ec 0%, #fdf0f5 50%, #f8e1f4 100%);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -31,20 +31,20 @@
     content: '';
     position: fixed; inset: 0;
     background-image:
-      radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+      radial-gradient(circle at 20% 20%, rgba(255,182,193,0.25) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(244,143,177,0.2) 0%, transparent 50%);
     pointer-events: none;
   }
-  .decoration { position: fixed; pointer-events: none; opacity: 0.08; font-size: 120px; color: white; user-select: none; }
+  .decoration { position: fixed; pointer-events: none; opacity: 0.12; font-size: 120px; color: #e91e8c; user-select: none; }
   .decoration.tl { top: -20px; left: -20px; transform: rotate(-15deg); }
   .decoration.br { bottom: -20px; right: -20px; transform: rotate(15deg); }
   .decoration.tr { top: 10px; right: -10px; transform: rotate(10deg); font-size: 80px; }
   .decoration.bl { bottom: 10px; left: -10px; transform: rotate(-10deg); font-size: 80px; }
 
 .header { text-align: center; margin-bottom: 20px; z-index: 10; animation: fadeDown 0.6s ease; }
-.brand { font-family: ‘Ma Shan Zheng’, cursive; font-size: 13px; color: #f9a8c9; letter-spacing: 4px; margin-bottom: 6px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
-.title { font-family: ‘ZCOOL XiaoWei’, serif; font-size: 28px; color: #ffe4b5; letter-spacing: 2px; text-shadow: 0 1px 0 #b8720a, 0 2px 0 #8a5000, 0 4px 12px rgba(0,0,0,0.4); }
-.subtitle { font-size: 11px; color: #f9a8c9; letter-spacing: 3px; margin-top: 4px; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+.brand { font-family: ‘Ma Shan Zheng’, cursive; font-size: 13px; color: #c2185b; letter-spacing: 4px; margin-bottom: 6px; text-shadow: 0 1px 3px rgba(194,24,91,0.15); }
+.title { font-family: ‘ZCOOL XiaoWei’, serif; font-size: 28px; color: #880e4f; letter-spacing: 2px; text-shadow: 0 1px 0 #f8bbd0, 0 2px 6px rgba(136,14,79,0.2); }
+.subtitle { font-size: 11px; color: #ad1457; letter-spacing: 3px; margin-top: 4px; }
 
 .card-container { position: relative; width: 340px; height: 210px; z-index: 10; margin-bottom: 22px; }
 .card-shadow { position: absolute; width: 320px; height: 190px; border-radius: 16px; left: 50%; transform-origin: center bottom; }
@@ -121,34 +121,34 @@ letter-spacing: 1px; font-family: ‘Noto Serif SC’, serif; transition: all 0.
 
 .controls { display: flex; flex-direction: column; align-items: center; gap: 12px; z-index: 10; }
 .btn-draw {
-background: white; color: var(–red); border: none;
+background: #c2185b; color: white; border: none;
 padding: 13px 44px; border-radius: 50px;
 font-family: ‘ZCOOL XiaoWei’, serif; font-size: 18px; letter-spacing: 3px;
 cursor: pointer; transition: all 0.2s ease;
-box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+box-shadow: 0 4px 20px rgba(194,24,91,0.35);
 }
-.btn-draw:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
+.btn-draw:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(194,24,91,0.45); }
 .btn-draw:active { transform: translateY(0) scale(0.97); }
 
 .filter-row { display: flex; gap: 7px; flex-wrap: wrap; justify-content: center; max-width: 340px; }
 .filter-btn {
-background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8);
-border: 1px solid rgba(255,255,255,0.2); padding: 6px 14px;
+background: rgba(194,24,91,0.08); color: #880e4f;
+border: 1px solid rgba(194,24,91,0.25); padding: 6px 14px;
 border-radius: 22px; font-size: 14px; letter-spacing: 0.5px;
 cursor: pointer; transition: all 0.2s; font-family: ‘Noto Serif SC’, serif;
 }
-.filter-btn.active { background: white; color: var(–red); border-color: white; }
+.filter-btn.active { background: #c2185b; color: white; border-color: #c2185b; }
 
 .progress-ring { position: fixed; top: 12px; left: 20px; z-index: 20; }
 .progress-ring svg { width: 44px; height: 44px; transform: rotate(-90deg); }
 .progress-ring circle { fill: none; stroke-width: 3; }
-.ring-bg { stroke: rgba(255,255,255,0.15); }
-.ring-fill { stroke: rgba(255,255,255,0.7); stroke-linecap: round; transition: stroke-dashoffset 0.5s ease; }
-.ring-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 9px; color: rgba(255,255,255,0.6); }
+.ring-bg { stroke: rgba(194,24,91,0.15); }
+.ring-fill { stroke: #c2185b; stroke-linecap: round; transition: stroke-dashoffset 0.5s ease; }
+.ring-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #ad1457; }
 
 .counter { position: fixed; top: 20px; right: 20px; text-align: right; z-index: 20; }
-.counter-num { font-family: ‘ZCOOL XiaoWei’, serif; font-size: 32px; color: rgba(255,255,255,0.9); line-height: 1; }
-.counter-label { font-size: 9px; color: rgba(255,255,255,0.4); letter-spacing: 2px; }
+.counter-num { font-family: ‘ZCOOL XiaoWei’, serif; font-size: 32px; color: #c2185b; line-height: 1; text-shadow: 0 1px 3px rgba(194,24,91,0.2); }
+.counter-label { font-size: 9px; color: #ad1457; letter-spacing: 2px; }
 
 .score-panel { position: fixed; top: 62px; left: 10px; z-index: 20; display: flex; flex-direction: column; gap: 4px; }
 
@@ -167,10 +167,10 @@ content: ‘🏆’; position: absolute; top: -8px; right: -6px; font-size: 14px
 .avatar-svg { width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35)); }
 
 .score-info { display: flex; flex-direction: column; }
-.score-label { font-size: 9px; color: #f472b0; letter-spacing: 1px; text-shadow: 0 1px 3px rgba(100,0,40,0.5); }
+.score-label { font-size: 9px; color: #c2185b; letter-spacing: 1px; }
 .score-num {
-font-family: ‘ZCOOL XiaoWei’, serif; font-size: 22px; color: #ff6eb0; line-height: 1.1;
-text-shadow: 0 1px 0 #a0005a, 0 2px 0 #80003a, 0 3px 6px rgba(0,0,0,0.4);
+font-family: ‘ZCOOL XiaoWei’, serif; font-size: 22px; color: #880e4f; line-height: 1.1;
+text-shadow: 0 1px 0 #f8bbd0, 0 2px 4px rgba(136,14,79,0.2);
 }
 
 /* Guess prompt banner shown on riddle/game cards */
@@ -190,8 +190,8 @@ font-family: ‘Noto Serif SC’, serif;
 
 .history-toggle {
 position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
-background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
-color: rgba(255,255,255,0.6); padding: 6px 18px; border-radius: 20px;
+background: rgba(194,24,91,0.08); border: 1px solid rgba(194,24,91,0.25);
+color: #ad1457; padding: 6px 18px; border-radius: 20px;
 font-size: 11px; cursor: pointer; letter-spacing: 1px; z-index: 20;
 font-family: ‘Noto Serif SC’, serif;
 }
